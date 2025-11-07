@@ -1,0 +1,56 @@
+name: remote-device-health-monitoring_platform
+
+services:
+  main-app:
+    build:
+      context: .
+      dockerfile: Remote_Device_Health_Monitoring_Platform/Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - device-service
+      - telemetry-service
+      - analytics-service
+      - notification-service
+    networks:
+      - healthnet
+
+  device-service:
+    build:
+      context: .
+      dockerfile: DeviceService/Dockerfile
+    ports:
+      - "5001:5000"
+    networks:
+      - healthnet
+
+  telemetry-service:
+    build:
+      context: .
+      dockerfile: TelemetryService/Dockerfile
+    ports:
+      - "5002:5000"
+    networks:
+      - healthnet
+
+  analytics-service:
+    build:
+      context: .
+      dockerfile: AnalyticsService/Dockerfile
+    ports:
+      - "5003:5000"
+    networks:
+      - healthnet
+
+  notification-service:
+    build:
+      context: .
+      dockerfile: NotificationService/Dockerfile
+    ports:
+      - "5004:5000"
+    networks:
+      - healthnet
+
+networks:
+  healthnet:
+    driver: bridge

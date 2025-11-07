@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Disable Visual Studio's local NuGet fallback (doesn't exist in Docker) -->
+    <DisableImplicitNuGetFallbackFolders>true</DisableImplicitNuGetFallbackFolders>
+  </PropertyGroup>
+</Project>
