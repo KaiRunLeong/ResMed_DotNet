@@ -1,0 +1,6 @@
+@Remote_Device_Health_Monitoring_Platform_HostAddress = http://localhost:5074
+
+GET {{Remote_Device_Health_Monitoring_Platform_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
